@@ -31,36 +31,38 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppCovidTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
+                //Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+
                     Main()
 
-                }
+
+                //}
             }
+
+
+
+
+
         }
     }
 }
 @Composable
 fun Main(){
-    val navController = rememberNavController()
+    val navController = rememberNavController() // Redigir Vistas
+    //BOTTOM NAVIGATION
     val navigationItems= listOf(
         AppScreens.FirstScreen ,
         AppScreens.EventosScreen
     )
     Scaffold(
+        modifier = Modifier.fillMaxSize().background(Color.Blue),
         bottomBar = {ButtomNavigationBar(navController = navController, items = navigationItems)}
     ) {
             innerPadding ->
         // Apply the padding globally to the whole BottomNavScreensController
-        Box(modifier = Modifier.padding(innerPadding)) {
+        Surface(modifier = Modifier.padding(innerPadding)) {
             AppNavigation(navController)
         }
-
-
-
-
     }
 }
 @Composable
