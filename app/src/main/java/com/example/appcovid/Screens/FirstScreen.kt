@@ -25,6 +25,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import com.example.appcovid.R
+import com.example.appcovid.model.MarkerMap
+
+
+//data class Mark(val name:String , val lat : Double ,val lon: Double,val dep:String,val horario:String, val direc:String)
+
+/*private val marks: List<Mark> = listOf(
+    Mark ("CENTRO DE SALUD CAYLLOMA", -15.1862,-71.7704,
+        "AREQUIPA"," 8:00 - 20:00","CAYLLOMA"),
+    Mark ("CENTRO DE SALUD CALLALLI", -15.5055,-71.4423,
+        "AREQUIPA"," 8:00 - 20:00","CALLALLI, CALLE CALLE POQUECHATA S/N NÚMERO S/N"),
+    Mark ("HOSPITAL GOYENECHE", -16.4016,-71.5284,
+        "AREQUIPA"," SIN ESPECIFICAR","AREQUIPA,AV. GOYENECHE S/N")
+)*/
 @Composable
 fun FirstScreen(navController: NavController){
     val HonorioDelgado = LatLng(-16.415428615723567, -71.53298460179624)
@@ -38,7 +51,10 @@ fun FirstScreen(navController: NavController){
         properties = MapProperties(mapStyleOptions = MapStyleOptions.loadRawResourceStyle(
             context,R.raw.style_json))
     ){
-        MapMarker(Mark ("HonorioDelgado",-16.415428615723567,-71.53298460179624), navController)
+        MarkerMap.getListIterator().forEach {
+            MapMarker(it, navController )
+        }
+
         /*Marker(
             position = HonorioDelgado,
             title = "HonorioDelgado",
@@ -65,17 +81,16 @@ fun FirstScreen(navController: NavController){
     }
 
 }
-data class Mark(val name:String , val lat : Double ,val lon: Double)
+
 
 @Composable
-fun MapMarker(mark : Mark,navController: NavController){
+fun MapMarker(mark : MarkerMap.Mark, navController: NavController){
     val aux  by remember { mutableStateOf(LatLng(mark.lat, mark.lon)) }
     Log.d("MY MARKET", "ENTRE $aux" )
     Marker(
 
         position = aux,
         title = mark.name,
-        snippet =  mark.name,
         onInfoWindowClick = {
             try {
                 GlobalScope.launch(Dispatchers.Main) {

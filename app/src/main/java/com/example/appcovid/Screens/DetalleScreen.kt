@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.appcovid.model.MarkerMap
 
 @Composable
 fun DetalleScreen(navController: NavController, text :String?){
@@ -36,32 +37,34 @@ fun DetalleScreen(navController: NavController, text :String?){
             },
 
         ) {
-            Card(modifier = Modifier.background(Color.Red)) {
-                BodyDetalle(navController, text)
+            text?.let {
+                Card(modifier = Modifier.background(Color.Red)) {
+                    BodyDetalle(navController, MarkerMap.getMark(text))
+                }
             }
+
 
         }
 }
 @Composable
-fun BodyDetalle(navController: NavController, text: String?){
+fun BodyDetalle(navController: NavController, mark: MarkerMap.Mark){
 
 
     Column (modifier = Modifier
         .fillMaxSize()
         .padding(20.dp, 16.dp)
         .border(5.dp, color = Color.LightGray, shape = RectangleShape)
-        .background(Color(22, 216, 99))
+        .background(Color(172, 238, 249))
         .padding(10.dp),
 
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
-        Text(text = "DETALLES CENTRO DE VACUNACION $text")
+        Text(text = "DETALLES CENTRO DE VACUNACION ${mark.name} \n" +
+                "DEPARTAMENTO : ${mark.dep} \n" +
+                "HORARIO : ${mark.horario} \n" +
+                "DIRECCION : ${mark.direc}")
+
 
     }
 
