@@ -5,7 +5,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.appcovid.Screens.DetalleScreen
 import com.example.appcovid.Screens.EventosScreen
@@ -35,7 +34,7 @@ fun AppNavigation(
             DetalleScreen(navController, it.arguments?.getString("text"))
         }
         composable(
-            route = AppScreens.EventosScreen.route
+            route = AppScreens.EstadisticasScreen.route
         ){
             EventosScreen(navController)
         }

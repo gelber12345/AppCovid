@@ -3,27 +3,21 @@ package com.example.appcovid
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.appcovid.Navigation.AppNavigation
 import com.example.appcovid.Navigation.AppScreens
 import com.example.appcovid.Screens.Componens.ButtomNavigationBar
-import com.example.appcovid.Screens.FirstScreen
 import com.example.appcovid.ui.theme.AppCovidTheme
-import com.google.maps.android.compose.GoogleMap
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +46,7 @@ fun Main(){
     //BOTTOM NAVIGATION
     val navigationItems= listOf(
         AppScreens.FirstScreen ,
-        AppScreens.EventosScreen
+        AppScreens.EstadisticasScreen
     )
     Scaffold(
         modifier = Modifier.fillMaxSize().background(Color.Blue),
