@@ -60,9 +60,10 @@ fun BodyDetalle(navController: NavController, mark: MarkerMap.Mark){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
-        Text(text = "DETALLES CENTRO DE VACUNACION ${mark.name} \n" +
-                "DEPARTAMENTO : ${mark.dep} \n" +
-                "HORARIO : ${mark.horario} \n" +
+        Text(text = "DETALLES CENTRO DE VACUNACION ${mark.name} \n")
+        Spacer(modifier = Modifier.height(40.dp))
+        Text(text = "DEPARTAMENTO : ${mark.dep} \n\n\n" +
+                "HORARIO : ${mark.horario} \n\n\n" +
                 "DIRECCION : ${mark.direc}")
 
 

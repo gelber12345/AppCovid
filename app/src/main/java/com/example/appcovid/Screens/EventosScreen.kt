@@ -14,6 +14,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Card
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
@@ -59,7 +60,7 @@ fun BodyEventos(navController: NavController){
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text("Eventos Proximos ")
+        Text("Datos Estadisticos ")
         //Si existe el parametro se imprime
 
             MyList(Estadisticas.getList())
@@ -83,30 +84,33 @@ fun MyList(datos: MutableList<Estadisticas.Estadistica>){
 @Composable
 fun MyComponent(dato: Estadisticas.Estadistica){
     var expanded by remember { mutableStateOf(false)}
-    Row(modifier = Modifier.padding(8.dp).background(Color(158, 235, 249))) {
+    Card() {
+        Row(modifier = Modifier
+            .padding(8.dp)
+            .background(Color(158, 235, 249))) {
 
-        Image(painterResource(id = dato.img),"Imagen prueba")
-        Column( modifier = Modifier.clickable {
-            expanded = !expanded
-        }){
-            Text(dato.provincia, maxLines = Int.MAX_VALUE)
-            if (expanded) {
-                Text(text = "DATOS ESTADISTICOS (SELECCIONAR PARA AMPLIAR) :\n" +
-                        "CASOS POSITIVOS VIVOS: ${dato.posv} \n" +
-                        "CASOS POSITIVOS DEFUNTOS : ${dato.posm} \n" +
-                        "CASOS NEGATIVOS : ${dato.nega} \n" +
-                        "PENDIENTES  : ${dato.pendientes} \n" +
-                        "TOTAL : ${dato.total}", maxLines = Int.MAX_VALUE)
-            }else{
-                Text(text = "DATOS ESTADISTICOS (SELECCIONAR PARA AMPLIAR) :\n" +
-                        "CASOS POSITIVOS VIVOS: ${dato.posv} \n" +
-                        "CASOS POSITIVOS DEFUNTOS : ${dato.posm} \n" +
-                        "CASOS NEGATIVOS : ${dato.nega} \n" +
-                        "PENDIENTES  : ${dato.pendientes} \n" +
-                        "TOTAL : ${dato.total}", maxLines = 1)
+            Image(painterResource(id = dato.img),"Imagen prueba")
+            Column( modifier = Modifier.clickable {
+                expanded = !expanded
+            }){
+                Text(dato.provincia, maxLines = Int.MAX_VALUE)
+                if (expanded) {
+                    Text(text = "DATOS ESTADISTICOS :\n" +
+                            "CASOS POSITIVOS VIVOS: ${dato.posv} \n" +
+                            "CASOS POSITIVOS DEFUNTOS : ${dato.posm} \n" +
+                            "CASOS NEGATIVOS : ${dato.nega} \n" +
+                            "PENDIENTES  : ${dato.pendientes} \n" +
+                            "TOTAL : ${dato.total}", maxLines = Int.MAX_VALUE)
+                }else{
+                    Text(text = "DATOS ESTADISTICOS :\n" +
+                            "CASOS POSITIVOS VIVOS: ${dato.posv} \n" +
+                            "CASOS POSITIVOS DEFUNTOS : ${dato.posm} \n" +
+                            "CASOS NEGATIVOS : ${dato.nega} \n" +
+                            "PENDIENTES  : ${dato.pendientes} \n" +
+                            "TOTAL : ${dato.total}", maxLines = 1)
+                }
+
             }
-
         }
-
     }
 }
