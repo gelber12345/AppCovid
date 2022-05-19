@@ -6,7 +6,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -34,13 +33,6 @@ fun ButtomNavigationBar(
                             saveState =true
                         }
                     }
-                    /*{
-                        */
-
-                        //
-
-
-
                 },
                 alwaysShowLabel = false
             )

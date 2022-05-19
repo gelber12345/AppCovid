@@ -1,5 +1,6 @@
 package com.example.appcovid.model
-import androidx.compose.foundation.Image
+
+
 import com.example.appcovid.R
 object Estadisticas{
     data class Estadistica(
@@ -44,9 +45,6 @@ object Estadisticas{
         Estadistica("YURA", 4598, 47, 39323, 32, 44000, R.drawable.escudoaqp)
         )
 
-    /*fun insert( name:String ,  lat : Double , lon: Double, dep:String, horario:String,  direc:String){
-         marks.add(Mark (name, lat,lon, dep,horario,direc),)
-     }*/
     fun getListIterator(): MutableListIterator<Estadistica> {
         return estadList.listIterator()
     }

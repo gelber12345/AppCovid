@@ -1,11 +1,7 @@
 package com.example.appcovid.Screens
 
 import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -28,16 +24,7 @@ import com.example.appcovid.R
 import com.example.appcovid.model.MarkerMap
 
 
-//data class Mark(val name:String , val lat : Double ,val lon: Double,val dep:String,val horario:String, val direc:String)
 
-/*private val marks: List<Mark> = listOf(
-    Mark ("CENTRO DE SALUD CAYLLOMA", -15.1862,-71.7704,
-        "AREQUIPA"," 8:00 - 20:00","CAYLLOMA"),
-    Mark ("CENTRO DE SALUD CALLALLI", -15.5055,-71.4423,
-        "AREQUIPA"," 8:00 - 20:00","CALLALLI, CALLE CALLE POQUECHATA S/N NÚMERO S/N"),
-    Mark ("HOSPITAL GOYENECHE", -16.4016,-71.5284,
-        "AREQUIPA"," SIN ESPECIFICAR","AREQUIPA,AV. GOYENECHE S/N")
-)*/
 @Composable
 fun FirstScreen(navController: NavController){
     val HonorioDelgado = LatLng(-16.415428615723567, -71.53298460179624)
@@ -54,30 +41,6 @@ fun FirstScreen(navController: NavController){
         MarkerMap.getListIterator().forEach {
             MapMarker(it, navController )
         }
-
-        /*Marker(
-            position = HonorioDelgado,
-            title = "HonorioDelgado",
-            snippet = "Hospital Honorio Delgado",
-            onInfoWindowClick = {
-                Toast.makeText(
-                    context,
-                    "Showing toast....",
-                    Toast.LENGTH_LONG
-                ).show()
-                try {
-                    Log.d("PASANDO", "Intentare")
-                    GlobalScope.launch(Dispatchers.Main) {
-                        navController.navigate(AppScreens.DetalleScreen.route + this.)
-                    }
-
-                } catch (ex: Exception) {
-                    Log.d("ONCLICK", ""+ ex)
-                }
-
-            }
-        )*/
-
     }
 
 }

@@ -17,9 +17,6 @@ object MarkerMap{
 
     )
 
-   /*fun insert( name:String ,  lat : Double , lon: Double, dep:String, horario:String,  direc:String){
-        marks.add(Mark (name, lat,lon, dep,horario,direc),)
-    }*/
      fun getListIterator(): MutableListIterator<Mark> {
         return marks.listIterator()
     }

@@ -15,9 +15,6 @@ import com.example.appcovid.Screens.FirstScreen
 fun AppNavigation(
     navController : NavHostController
 ){
-    /*
-        First comment
-     */
     //val navController = rememberNavController()
     NavHost(navController = navController, startDestination = AppScreens.FirstScreen.route ){
         composable(

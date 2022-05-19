@@ -1,7 +1,7 @@
 package com.example.appcovid.Screens
 
 
-import android.widget.Space
+
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
@@ -19,25 +19,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import com.example.appcovid.R
 import com.example.appcovid.model.Estadisticas
 
-/*
-private val eventosList: List<Eventos> = listOf(
-    Eventos("VACUANCION EN HONORIO DELGADO" , "Se realizara una Vacunacion para Menores de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HONORIO DELGADO" , "Se realizara una Vacunacion para Menores de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad"),
-    Eventos("VACUANCION EN HOSPITAL GOYONECHE" , "Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad Se realizara una Vacunacion para MAYORES de edad")
-
-    )*/
 
 @Composable
 fun EventosScreen(navController: NavController){
@@ -62,7 +45,6 @@ fun BodyEventos(navController: NavController){
     ){
         Text("Datos Estadisticos ")
         //Si existe el parametro se imprime
-
             MyList(Estadisticas.getList())
 
     }
