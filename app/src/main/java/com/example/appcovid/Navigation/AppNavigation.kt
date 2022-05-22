@@ -10,29 +10,28 @@ import com.example.appcovid.Screens.DetalleScreen
 import com.example.appcovid.Screens.EventosScreen
 import com.example.appcovid.Screens.FirstScreen
 
-
 @Composable
 fun AppNavigation(
-    navController : NavHostController
-){
+    navController: NavHostController
+) {
     //val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = AppScreens.FirstScreen.route ){
+    NavHost(navController = navController, startDestination = AppScreens.FirstScreen.route) {
         composable(
             route = AppScreens.FirstScreen.route
-        ){
+        ) {
             FirstScreen(navController)
         }
         composable(
-            route = AppScreens.DetalleScreen.route+ "/{text}",
+            route = AppScreens.DetalleScreen.route + "/{text}",
             arguments = listOf(navArgument(name = "text") {
                 type = NavType.StringType
             })
-        ){
+        ) {
             DetalleScreen(navController, it.arguments?.getString("text"))
         }
         composable(
             route = AppScreens.EstadisticasScreen.route
-        ){
+        ) {
             EventosScreen(navController)
         }
     }

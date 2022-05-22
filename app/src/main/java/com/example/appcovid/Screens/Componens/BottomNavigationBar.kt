@@ -11,26 +11,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.appcovid.Navigation.AppScreens
 
-
-
 @Composable
 fun ButtomNavigationBar(
     navController: NavHostController,
     items: List<AppScreens>
-){
+) {
     val currentRoute = currentRoute(navController)
     BottomNavigation {
         items.forEach { screen ->
-
             BottomNavigationItem(
-                icon = { Icon(imageVector = screen.icon, contentDescription = screen.title)},
-                label = {Text( screen.title)},
+                icon = { Icon(imageVector = screen.icon, contentDescription = screen.title) },
+                label = { Text(screen.title) },
                 selected = currentRoute == screen.route,
                 onClick = {
-                    navController.navigate(screen.route){
+                    navController.navigate(screen.route) {
                         //launchSingleTop = true
-                        popUpTo(navController.graph.findStartDestination().id){
-                            saveState =true
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
                         }
                     }
                 },
@@ -41,7 +38,7 @@ fun ButtomNavigationBar(
 }
 
 @Composable
-private fun currentRoute(navController: NavHostController) : String?{
+private fun currentRoute(navController: NavHostController): String? {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
 }

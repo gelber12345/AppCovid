@@ -24,43 +24,47 @@ import com.example.appcovid.R
 import com.example.appcovid.model.MarkerMap
 
 
-
 @Composable
-fun FirstScreen(navController: NavController){
-    val HonorioDelgado = LatLng(-16.415428615723567, -71.53298460179624)
+fun FirstScreen(navController: NavController) {
+    // Ubicación por defecto: Hospital Honorio Delgado Espinoza
+    val posicionInicial = LatLng(-16.415428615723567, -71.53298460179624)
+
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(HonorioDelgado, 15f)
+        position = CameraPosition.fromLatLngZoom(posicionInicial, 15f)
     }
+
     val context = LocalContext.current
     GoogleMap(
         modifier = Modifier.fillMaxSize(),
         cameraPositionState = cameraPositionState,
-        properties = MapProperties(mapStyleOptions = MapStyleOptions.loadRawResourceStyle(
-            context,R.raw.style_json))
-    ){
+        properties = MapProperties(
+            mapStyleOptions = MapStyleOptions.loadRawResourceStyle(
+                context, R.raw.style_json
+            )
+        )
+    ) {
         MarkerMap.getListIterator().forEach {
-            MapMarker(it, navController )
+            MapMarker(it, navController)
         }
     }
 
 }
 
-
 @Composable
-fun MapMarker(mark : MarkerMap.Mark, navController: NavController){
-    val aux  by remember { mutableStateOf(LatLng(mark.lat, mark.lon)) }
-    Log.d("MY MARKET", "ENTRE $aux" )
-    Marker(
+fun MapMarker(mark: MarkerMap.Mark, navController: NavController) {
+    val aux by remember { mutableStateOf(LatLng(mark.latitud, mark.longitud)) }
+    Log.d("MY MARKET", "ENTRE $aux")
 
+    Marker(
         position = aux,
-        title = mark.name,
+        title = mark.nombre,
         onInfoWindowClick = {
             try {
                 GlobalScope.launch(Dispatchers.Main) {
-                    navController.navigate(AppScreens.DetalleScreen.route +"/${mark.name}")
+                    navController.navigate(AppScreens.DetalleScreen.route + "/${mark.nombre}")
                 }
             } catch (ex: Exception) {
-                Log.d("ONCLICK", ""+ ex)
+                Log.d("ONCLICK", "" + ex)
             }
 
         }

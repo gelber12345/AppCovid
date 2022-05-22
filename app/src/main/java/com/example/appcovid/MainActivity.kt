@@ -26,32 +26,35 @@ class MainActivity : ComponentActivity() {
             AppCovidTheme {
                 // A surface container using the 'background' color from the theme
                 //Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Main()
+                Main()
                 //}
             }
 
         }
     }
 }
+
 @Composable
-fun Main(){
-    val navController = rememberNavController() // Redigir Vistas
+fun Main() {
+    val navController = rememberNavController() // Redirección de vistas
     //BOTTOM NAVIGATION
-    val navigationItems= listOf(
-        AppScreens.FirstScreen ,
+    val navigationItems = listOf(
+        AppScreens.FirstScreen,
         AppScreens.EstadisticasScreen
     )
     Scaffold(
-        modifier = Modifier.fillMaxSize().background(Color.Blue),
-        bottomBar = {ButtomNavigationBar(navController = navController, items = navigationItems)}
-    ) {
-            innerPadding ->
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Blue),
+        bottomBar = { ButtomNavigationBar(navController = navController, items = navigationItems) }
+    ) { innerPadding ->
         // Apply the padding globally to the whole BottomNavScreensController
         Surface(modifier = Modifier.padding(innerPadding)) {
             AppNavigation(navController)
         }
     }
 }
+
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
